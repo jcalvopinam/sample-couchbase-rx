@@ -24,7 +24,6 @@
 
 package com.jcalvopinam.service;
 
-import com.jcalvopinam.model.Address;
 import com.jcalvopinam.model.Person;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -37,5 +36,5 @@ public interface PersonService {
 
     Mono<Person> getPerson(String id);
 
-    Flux<Address> getAddressesByPerson(String id);
+    Object getAddressesByPerson(String id);
 }

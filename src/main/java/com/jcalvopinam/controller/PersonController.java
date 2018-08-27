@@ -62,4 +62,9 @@ public class PersonController {
                             .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/{id}/address")
+    public Object getAddressByPersonsId(@PathVariable String id) {
+        return personService.getAddressesByPerson(id);
+    }
+
 }

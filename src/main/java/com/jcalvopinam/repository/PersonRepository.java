@@ -26,8 +26,10 @@ package com.jcalvopinam.repository;
 
 import com.jcalvopinam.model.Person;
 import org.springframework.data.couchbase.core.query.N1qlPrimaryIndexed;
+import org.springframework.data.couchbase.core.query.Query;
 import org.springframework.data.couchbase.core.query.ViewIndexed;
 import org.springframework.data.couchbase.repository.ReactiveCouchbaseRepository;
+import reactor.core.publisher.Flux;
 
 /**
  * @author Juan Calvopina M. <juan.calvopina@gmail.com>
@@ -35,4 +37,8 @@ import org.springframework.data.couchbase.repository.ReactiveCouchbaseRepository
 @N1qlPrimaryIndexed
 @ViewIndexed(designDoc = "person")
 public interface PersonRepository extends ReactiveCouchbaseRepository<Person, String> {
+
+    @Query("SELECT address, META(sample).id as _ID, META(sample).cas as _CAS FROM `sample` WHERE id = $1")
+    Flux<Person> findAddressesByPerson(String id);
+
 }
