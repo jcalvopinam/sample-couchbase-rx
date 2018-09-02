@@ -47,7 +47,7 @@ public class Person {
     private String lastName;
 
     @Field
-    private List<Address> address;
+    private List<Address> addresses;
 
     public String getId() {
         return id;
@@ -73,12 +73,12 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public List<Address> getAddress() {
-        return address;
+    public List<Address> getAddresses() {
+        return addresses;
     }
 
-    public void setAddress(List<Address> address) {
-        this.address = address;
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 
     @Override

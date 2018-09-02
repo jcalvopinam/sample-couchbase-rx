@@ -24,6 +24,7 @@
 
 package com.jcalvopinam.service;
 
+import com.jcalvopinam.model.Address;
 import com.jcalvopinam.model.Person;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -32,9 +33,11 @@ import reactor.core.publisher.Mono;
  * @author Juan Calvopina M. <juan.calvopina@gmail.com>
  */
 public interface PersonService {
+
     Flux<Person> getAllPersons();
 
     Mono<Person> getPerson(String id);
 
-    Object getAddressesByPerson(String id);
+    Flux<Person> getAddressesByPerson(String id);
+
 }

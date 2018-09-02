@@ -38,7 +38,7 @@ import reactor.core.publisher.Flux;
 @ViewIndexed(designDoc = "person")
 public interface PersonRepository extends ReactiveCouchbaseRepository<Person, String> {
 
-    @Query("SELECT address, META(sample).id as _ID, META(sample).cas as _CAS FROM `sample` WHERE id = $1")
+    @Query("SELECT addresses, META(sample).id as _ID, META(sample).cas as _CAS FROM `sample` WHERE id = $1")
     Flux<Person> findAddressesByPerson(String id);
 
 }

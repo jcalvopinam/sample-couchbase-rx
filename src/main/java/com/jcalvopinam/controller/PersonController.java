@@ -24,6 +24,7 @@
 
 package com.jcalvopinam.controller;
 
+import com.jcalvopinam.model.Address;
 import com.jcalvopinam.model.Person;
 import com.jcalvopinam.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ import reactor.core.publisher.Mono;
  * @author Juan Calvopina M. <juan.calvopina@gmail.com>
  */
 @RestController
-@RequestMapping("/persons")
+@RequestMapping("/people")
 public class PersonController {
 
     private final PersonService personService;
@@ -62,8 +63,8 @@ public class PersonController {
                             .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/{id}/address")
-    public Object getAddressByPersonsId(@PathVariable String id) {
+    @GetMapping("/{id}/addresses")
+    public Flux<Person> getAddressByPersonsId(@PathVariable String id) {
         return personService.getAddressesByPerson(id);
     }
 

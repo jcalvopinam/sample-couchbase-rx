@@ -24,6 +24,7 @@
 
 package com.jcalvopinam.service;
 
+import com.jcalvopinam.model.Address;
 import com.jcalvopinam.model.Person;
 import com.jcalvopinam.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Object getAddressesByPerson(String id) {
+    public Flux<Person> getAddressesByPerson(String id) {
         return personRepository.findAddressesByPerson(id);
     }
 
